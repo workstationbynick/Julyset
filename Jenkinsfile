@@ -87,8 +87,8 @@ pipeline {
                        sh "chmod 400  Nick-KP.pem"
                        sh "ls -lah"
                         sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no Dockerfile ubuntu@54.161.154.59:/home/ubuntu"
-                        sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no dockerfile ubuntu@54.161.154.59:/home/ubuntu"
-                        sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no deploy-dockerhub.yml ubuntu@54.161.154.59:/home/ubuntu"
+                        sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no Dockerfile ubuntu@54.161.154.59:/home/ubuntu"
+                        sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no Dockerhub.yaml ubuntu@54.161.154.59:/home/ubuntu"
                     }
                 }
             
@@ -98,7 +98,7 @@ pipeline {
             
             steps {
                   sshagent(['ssh_key']) {
-                        sh "ssh -i Nick-KP.pem -o StrictHostKeyChecking=no ubuntu@54.161.154.59 -C \"ansible-playbook  -vvv -e build_number=${BUILD_NUMBER} deploy-dockerhub.yml\""
+                        sh "ssh -i Nick-KP.pem -o StrictHostKeyChecking=no ubuntu@54.161.154.59 -C \"ansible-playbook  -vvv -e build_number=${BUILD_NUMBER} Dockerhub.yaml\""
                         
                     }
                 }
