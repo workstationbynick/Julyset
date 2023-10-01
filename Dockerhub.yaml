@@ -50,7 +50,7 @@
 
   - name: Push to docker hub
     docker_image:
-        name: workstatiobynick/july-devops
+        name: workstationbynick/july-devops
         repository: workstationbynick/july-devops:{{build_number}}
         force_tag: yes
         push: yes
