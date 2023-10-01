@@ -32,8 +32,8 @@
 
   - name: Build image and with build args
     docker_image:
-      name: workstationbynick/Julyset
-      repository: workstatiobynick/Julyset:{{build_number}}
+      name: workstationbynick/july-devops
+      repository: workstatiobynick/july-devops:{{build_number}}
       build:
         path: /home/ubuntu
         args:
@@ -50,8 +50,8 @@
 
   - name: Push to docker hub
     docker_image:
-        name: workstatiobynick/Julyset
-        repository: workstationbynick/Julyset:{{build_number}}
+        name: workstatiobynick/july-devops
+        repository: workstationbynick/july-devops:{{build_number}}
         force_tag: yes
         push: yes
         source: local
