@@ -130,8 +130,8 @@ pipeline {
                   sshagent(['ssh_key']) {
                        // sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@18.205.98.141 -C \"kubectl set image deployment/class-deploy2 customcontainer=adegokeobafemi/lab:${BUILD_NUMBER}\""
                         //sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@18.205.98.141 -C \"kubectl delete pod class-deploy2\""
-                        sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@3.95.9.32 -C \"kubectl apply -f Deployment.yaml\""
-                        sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@3.95.9.32 -C \"kubectl apply -f Service.yaml\""
+                        sh "ssh -i Nick-KP.pem -o StrictHostKeyChecking=no ubuntu@3.95.9.32 -C \"kubectl apply -f Deployment.yaml\""
+                        sh "ssh -i Nick-KP.pem -o StrictHostKeyChecking=no ubuntu@3.95.9.32 -C \"kubectl apply -f Service.yaml\""
                         
                     }
                 }
