@@ -5,7 +5,7 @@
   - name: Pull .war artifact from Artifactory
     become: true
     get_url:
-      url: http://54.236.22.89:8082/artifactory/project1-libs-release-local/com/theITern/theITern/1.0-RELEASE/theITern-1.0-RELEASE.war
+      url: http://3.80.123.105:8082/artifactory/project1-libs-release-local/com/theITern/theITern/1.0-RELEASE/theITern-1.0-RELEASE.war
       dest: /home/ubuntu
       url_username: admin
       url_password: Thornbirds0
