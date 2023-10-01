@@ -1,0 +1,34 @@
+---
+- hosts: all
+  tasks:
+
+  - name: copy dockerfile into Remote machine
+    copy:
+     src: dockerfile
+     dest: .
+
+  - name: copy .war file into Remote machine
+    copy:
+     src: webapp.war
+     dest: .
+
+  - name: stop the running container
+    command: docker stop comocon
+    ignore_errors: True
+
+  - name: remove  the running container
+    command: docker rm comocon
+    ignore_errors: True
+
+  - name: remove  the running image
+    command: docker rmi  comoimage
+    ignore_errors: True
+
+  - name: create customimage from dockerfile 
+    command: docker build -t comoimage .
+     
+  - name: create and run container
+    command: docker run -d -p 8080:8080 --name comocon comoimage
+
+
+

@@ -109,8 +109,8 @@ pipeline {
             
             steps {
                   sshagent(['ssh_key']) {
-                        sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no deployment.yaml ubuntu@3.95.9.32:/home/ubuntu"
-                        sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no service.yaml ubuntu@3.95.9.32:/home/ubuntu"
+                        sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no Deployment.yaml ubuntu@3.95.9.32:/home/ubuntu"
+                        sh "scp -i Nick-KP.pem -o StrictHostKeyChecking=no Service.yaml ubuntu@3.95.9.32:/home/ubuntu"
                     }
                 }
             
@@ -128,10 +128,10 @@ pipeline {
             
             steps {
                   sshagent(['ssh_key']) {
-                        sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@18.205.98.141 -C \"kubectl set image deployment/class-deploy2 customcontainer=adegokeobafemi/lab:${BUILD_NUMBER}\""
+                       // sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@18.205.98.141 -C \"kubectl set image deployment/class-deploy2 customcontainer=adegokeobafemi/lab:${BUILD_NUMBER}\""
                         //sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@18.205.98.141 -C \"kubectl delete pod class-deploy2\""
-                        //sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@18.205.98.141 -C \"kubectl apply -f deploy.yml\""
-                        //sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@18.205.98.141 -C \"kubectl apply -f service.yml\""
+                        sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@3.95.9.32 -C \"kubectl apply -f Deployment.yaml\""
+                        sh "ssh -i Itern-KP.pem -o StrictHostKeyChecking=no ubuntu@3.95.9.32 -C \"kubectl apply -f Service.yaml\""
                         
                     }
                 }

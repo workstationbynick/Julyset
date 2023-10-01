@@ -1,0 +1,22 @@
+#Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: como-deploy
+  labels:
+    app: como
+spec:
+ replicas: 3
+ selector:
+   matchLabels:
+     app: como
+ template:
+   metadata:
+     labels:
+       app: como
+   spec:
+     containers:
+     - name: comocon
+       image: workstationbynick/july-devops:29072023
+       ports:
+       - containerPort: 8080

@@ -1,0 +1,15 @@
+#Service Type nodePort
+apiVersion: v1
+kind: Service
+metadata:
+  name: como-service
+  labels:
+    app: como
+spec:
+  selector:
+    app: como
+  type: NodePort
+  ports:
+  - nodePort: 32000
+    port: 8080
+    targetPort: 8080
